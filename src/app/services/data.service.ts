@@ -34,7 +34,7 @@ export class DataService {
   }
 
   public getDetail(): Observable<any> {
-
+    return this.http.get<ICountry[]>(environment.countriesUrl + "/all")
   }
 
 }
