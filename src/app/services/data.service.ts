@@ -33,27 +33,10 @@ export class DataService {
     )
   }
 
-  public getDetail(): Observable<any> {
-    return this.http.get<ICountry[]>(environment.countriesUrl + "/all")
+  public getDetail(params:string): Observable<any> {
+    return  this.http.get<any>(environment.countriesUrl + "/alpha/" + params).pipe(
+      map( detail => detail[0])
+    );
   }
 
 }
-
-
-// return {
-//   name: country.name.common,
-//   population:country.population,
-//   region:country.region;
-//   capital:country.capital[0];
-// }
-
-
-// map((country) => {
-//   return {
-  // name: country.name.common,
-  // population:country.population,
-  // region:country.region,
-  // capital:country.capital[0]
-//   }
-// }
-// )
