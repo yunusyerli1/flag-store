@@ -12,7 +12,6 @@ import { DataService } from 'src/app/services/data.service';
 export class FlagListComponent implements OnInit {
 
   countryList$!: Observable<any>;
-  github:any;
   errorMessage:string | undefined;
   loading:boolean = false;
 
@@ -40,7 +39,6 @@ export class FlagListComponent implements OnInit {
            }
          })
 
-        console.log(this.countryList$)
   }
 
 }

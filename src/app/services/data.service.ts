@@ -24,12 +24,10 @@ export class DataService {
           region:country.region,
           capital:country.capital?.[0],
           flags:country.flags["png"],
-          tld:country.tld?.[0]
+          tld:country.tld?.[0].slice(1,country.tld?.[0].length)
         })
         )
       }
-
-
       ),
       tap(res => console.log(res))
     )

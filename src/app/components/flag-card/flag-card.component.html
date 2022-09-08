@@ -1,10 +1,13 @@
-<div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md card-hover">
-  <img class="rounded-t-lg" [src]="countryInfo.flags" [alt]="countryInfo.name" style="height:160px;"/>
+<a routerLink="/home/{{countryInfo.tld}}">
+  <div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md card-hover">
+    <img class="rounded-t-lg" [src]="countryInfo.flags" [alt]="countryInfo.name" style="height:160px;"/>
 
-  <div class="flex flex-col p-5">
-      <h5 class="mb-3 text-xl font-bold truncate ">{{countryInfo.name}}</h5>
-      <div class="mb-1"><span class="font-semibold">Population: </span><span>{{countryInfo.population}}</span></div>
-      <div class="mb-1"><span class="font-semibold">Region: </span><span>{{countryInfo.region}}</span></div>
-      <div class="mb-1"><span class="font-semibold">Capital: </span><span>{{countryInfo.capital}}</span></div>
+    <div class="flex flex-col p-5">
+        <h5 class="mb-3 text-xl font-bold truncate ">{{countryInfo.name}}</h5>
+        <div class="mb-1"><span class="font-semibold">Population: </span><span>{{countryInfo.population}}</span></div>
+        <div class="mb-1"><span class="font-semibold">Region: </span><span>{{countryInfo.region}}</span></div>
+        <div class="mb-1"><span class="font-semibold">Capital: </span><span>{{countryInfo.capital}}</span></div>
+    </div>
   </div>
-</div>
+</a>
+
