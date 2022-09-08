@@ -11,6 +11,7 @@ import { FlagListComponent } from './components/flag-list/flag-list.component';
 import { FlagCardComponent } from './components/flag-card/flag-card.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
+import { LoadingComponent } from './components/loading/loading.component';
 
 
 
@@ -24,6 +25,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
     FlagListComponent,
     FlagCardComponent,
     PageNotFoundComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,

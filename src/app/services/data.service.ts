@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map, tap} from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 import { ICountry } from '../models/country';
 
 @Injectable({
@@ -9,12 +10,11 @@ import { ICountry } from '../models/country';
 })
 export class DataService {
 
-  baseURL: string = "https://restcountries.com/v3.1/";
 
   constructor(private http: HttpClient) { }
 
   public getCountries(): Observable<ICountry[]> {
-    return this.http.get<ICountry[]>(this.baseURL+ "all")
+    return this.http.get<ICountry[]>(environment.countriesUrl + "/all")
     .pipe(
       map((countries:ICountry[]) => {
         return countries.map(country =>
@@ -31,6 +31,10 @@ export class DataService {
       ),
       tap(res => console.log(res))
     )
+  }
+
+  public getDetail(): Observable<any> {
+
   }
 
 }
