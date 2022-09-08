@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { ICountry } from 'src/app/models/country';
 
 @Component({
   selector: 'app-flag-card',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FlagCardComponent implements OnInit {
 
+  @Input() countryInfo!: ICountry;
+
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.countryInfo)
   }
 
 }
