@@ -1,8 +1,10 @@
 
 <header class="flex items-center justify-start sm:justify-between  border-b py-6 px-4 sm:px-20 xl:px-40">
-        <a class="font-medium leading-tight text-2xl" routerLink="/">Where in the World?</a>
-    <button class="flex items-center justify-end w-full mt-8 sm:mt-0 sm:flex-1 lg:w-0">
-      <img src="../../../assets/icons/moon.svg" style="height:20px;"/>
-      <span class=" font-medium leading-tight text-base ml-2 hover:text-orange-300">Dark Mode</span>
-    </button>
+        <a class="font-medium leading-tight text-2xl dark:text-white" routerLink="/">Where in the World?</a>
+    <a class="flex items-center justify-end w-full mt-8 sm:mt-0 sm:flex-1 lg:w-0 cursor-pointer hover:text-orange-300 dark:text-white" (click)="toggleDarkMode()">
+      <svg  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
+      </svg>
+      <span class=" font-medium leading-tight text-base ml-2 ">Dark Mode</span>
+    </a>
 </header>

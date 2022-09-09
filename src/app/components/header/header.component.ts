@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 
 
 @Component({
@@ -8,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('toggleDark') toggleDark!: ElementRef;
+
+  constructor(private renderer: Renderer2) { }
 
   ngOnInit(): void {
+  }
+
+  toggleDarkMode() {
+    console.log("sd")
+    this.renderer.addClass(this.toggleDark.nativeElement.querySelector('.toggle-dark'), 'dark' );
   }
 
 }
