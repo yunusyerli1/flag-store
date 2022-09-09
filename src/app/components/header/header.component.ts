@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, Renderer2, ViewChild } from '@angular/core';
 
 
 @Component({
@@ -6,18 +6,26 @@ import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/co
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterViewInit {
 
-  @ViewChild('toggleDark') toggleDark!: ElementRef;
+  @Output() switchDarkMode = new EventEmitter<any>();
+
+  isDarkMode:boolean = false;
+  localDarkMode!:boolean;
 
   constructor(private renderer: Renderer2) { }
 
   ngOnInit(): void {
+    this.localDarkMode = localStorage.getItem('isDarkMode') == 'false' ? false : true;
+  }
+
+  ngAfterViewInit() {
+    if(this.localDarkMode) this.isDarkMode = this.localDarkMode;
   }
 
   toggleDarkMode() {
-    console.log("sd")
-    this.renderer.addClass(this.toggleDark.nativeElement.querySelector('.toggle-dark'), 'dark' );
+    this.isDarkMode=!this.isDarkMode;
+    this.switchDarkMode.emit();
   }
 
 }

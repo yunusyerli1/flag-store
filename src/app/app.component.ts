@@ -10,9 +10,10 @@ import { LoadingService } from './services/loading.service';
 export class AppComponent implements OnInit, AfterViewInit {
 
   title = 'flag-store';
-  @ViewChild('root') root!: ElementRef;
   isDarkMode:boolean = false;
   localDarkMode!:boolean;
+
+  @ViewChild('root') root!: ElementRef;
 
   constructor(private renderer: Renderer2) {}
 
