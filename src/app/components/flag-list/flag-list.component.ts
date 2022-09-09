@@ -29,7 +29,7 @@ export class FlagListComponent implements OnInit {
              this.countryList$ = of(response);
            },
            error: (error) => {
-             console.error('Request failed with error')
+             console.error('Request failed with error'+error)
              this.errorMessage = error;
            },
            complete: () => {

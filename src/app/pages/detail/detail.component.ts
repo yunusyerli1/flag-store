@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { ICountryDetail } from 'src/app/models/detail';
 import { DataService } from 'src/app/services/data.service';
 import { LoadingService } from 'src/app/services/loading.service';
 
@@ -11,7 +12,7 @@ import { LoadingService } from 'src/app/services/loading.service';
 })
 export class DetailComponent implements OnInit {
 
-    countryDetail$!:Observable<any>;
+    countryDetail$!:Observable<ICountryDetail>;
     errorMessage:string | undefined;
 
 
@@ -25,10 +26,13 @@ export class DetailComponent implements OnInit {
   }
 
   getCountryDetail(code: string) {
-    this.dataService.getDetail(code).subscribe({
+    this.dataService.getDetail(code)
+    .subscribe({
       next: (response) => {
-        this.countryDetail$ = response;
-        console.log(this.countryDetail$)
+        console.log(response)
+        this.countryDetail$ = of(response);
+        console.log( this.countryDetail$ )
+        console.log(typeof this.countryDetail$ )
       },
       error: (error) => {
         console.error('Request failed with error')

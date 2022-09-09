@@ -1,1 +1,14 @@
-<p>detail works!</p>
+<div class="flex flex-col" >
+    <div class="flex justify-start">
+      <a  class="flex justify-center items-center px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out" routerLink="/" >
+        <img src="../../../assets/icons/arrow-left-white.svg" style="height:20px;" alt="back">
+        <span>Back</span>
+      </a>
+    </div>
+    <div class="flex" *ngIf="countryDetail$ | async as detail;">
+      <div>
+        <img [src]="detail?.flags.png" alt="">
+        <p>{{detail?.area}}as</p>
+      </div>
+    </div>
+</div>
