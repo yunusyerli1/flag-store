@@ -44,5 +44,9 @@ export class DetailComponent implements OnInit {
     });
   }
 
+ getLanguages(languages) {
+  return Object.values(languages).map(val => val);
+ }
+
 
 }
