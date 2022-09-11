@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable,of } from 'rxjs';
 import { tap} from 'rxjs/operators';
+import { ICountry } from 'src/app/models/country';
 import { DataService } from 'src/app/services/data.service';
 import { LoadingService } from 'src/app/services/loading.service';
 import { loadCountries } from 'src/app/store/actions/countries.actions';
-import { AppState } from 'src/app/store/reducers';
+//import { AppState } from 'src/app/store/reducers';
 
 @Component({
   selector: 'app-flag-list',
@@ -19,7 +20,8 @@ export class FlagListComponent implements OnInit {
 
   constructor(private dataService : DataService,
     private loadingService: LoadingService,
-    private store: Store<AppState>) { }
+    private store: Store<ICountry[]>
+    ) { }
 
   ngOnInit(): void {
     this.getCountryList()

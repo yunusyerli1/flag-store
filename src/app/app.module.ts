@@ -15,8 +15,9 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-import { metaReducers, reducers } from './store';
+
 import { EffectsModule } from '@ngrx/effects';
+import { countriesReducer } from './store/reducers/countries.reducers';
 
 
 
@@ -36,7 +37,7 @@ import { EffectsModule } from '@ngrx/effects';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    StoreModule.forRoot({reducers}, {metaReducers}),
+    StoreModule.forRoot({ countryList: countriesReducer }),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],

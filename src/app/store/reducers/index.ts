@@ -1,22 +1,21 @@
-import { Meta } from '@angular/platform-browser';
-//import { routerReducer } from '@ngrx/router-store';
-import {
-  ActionReducer,
-  ActionReducerMap,
-  createFeatureSelector,
-  createSelector,
-  MetaReducer
-} from '@ngrx/store';
-import { environment } from 'src/environments/environment';
+//  import { Meta } from '@angular/platform-browser';
+//  import {
+//    ActionReducer,
+//    ActionReducerMap,
+//    createFeatureSelector,
+//    createSelector,
+//    MetaReducer
+//  } from '@ngrx/store';
+//  import { environment } from 'src/environments/environment';
+// import { countriesReducer } from './countries.reducers';
 
-export interface AppState {
+//  export interface AppState {
 
-}
+//  }
 
-export const reducers: ActionReducerMap<AppState> = {
-  //router: routerReducer
-};
+//  export const reducers: ActionReducerMap<AppState> = {
+//    countyList: countriesReducer
+//  };
 
-
-export const metaReducers: MetaReducer<AppState>[] =
-    !environment.production ? [] : [];
+//  export const metaReducers: MetaReducer<AppState>[] =
+//      !environment.production ? [] : [];
