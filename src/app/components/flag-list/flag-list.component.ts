@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Observable,of } from 'rxjs';
+import { tap} from 'rxjs/operators';
 import { DataService } from 'src/app/services/data.service';
 import { LoadingService } from 'src/app/services/loading.service';
+import { loadCountries } from 'src/app/store/actions/countries.actions';
+import { AppState } from 'src/app/store/reducers';
 
 @Component({
   selector: 'app-flag-list',
@@ -14,7 +18,8 @@ export class FlagListComponent implements OnInit {
   errorMessage:string | undefined;
 
   constructor(private dataService : DataService,
-    private loadingService: LoadingService) { }
+    private loadingService: LoadingService,
+    private store: Store<AppState>) { }
 
   ngOnInit(): void {
     this.getCountryList()
@@ -24,18 +29,20 @@ export class FlagListComponent implements OnInit {
     this.errorMessage = "";
     this.loadingService.loadingOn();
      this.dataService.getCountries()
-     .subscribe({
-           next: (response) => {
+     .pipe(
+      tap(countries => {
+        console.log("Dispatch öncesi", countries);
+        this.store.dispatch(loadCountries({countries}));
+      })
+     )
+     .subscribe(
+            (response) => {
              this.countryList$ = of(response);
-           },
-           error: (error) => {
-             console.error('Request failed with error'+error)
-             this.errorMessage = error;
-           },
-           complete: () => {
              this.loadingService.loadingOff();
-           }
-         })
+           },
+           (err)=>{this.errorMessage = err;}
+
+         )
 
   }
 

@@ -10,5 +10,6 @@ This project was created for Reloadly.
 ## Libraries That I Used
 
 > - Ngrx
+> - Tailwindcss
 
 
