@@ -12,6 +12,9 @@ import { FlagCardComponent } from './components/flag-card/flag-card.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { LoadingComponent } from './components/loading/loading.component';
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 
 
@@ -31,6 +34,8 @@ import { LoadingComponent } from './components/loading/loading.component';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    StoreModule.forRoot({}, {}),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
   providers: [],
   bootstrap: [AppComponent]
