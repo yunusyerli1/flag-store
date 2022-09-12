@@ -1,20 +1,19 @@
-import { createSelector } from '@ngrx/store';
-import { IAppState } from '../index';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 import { CountriesState } from '../reducers/countries.reducers';
 
-export const selectCountries = (state: any) => state.countries;
+export const selectCountriesState = createFeatureSelector<any>("countries")
 
 export const selectAllCountries = createSelector(
-  selectCountries,
-  (state: CountriesState) => state.countries
+  selectCountriesState,
+  (countries) => countries.countries
 );
 
 export const selectCountriesLoaded = createSelector(
-  selectCountries,
+  selectCountriesState,
   (state: CountriesState) => state.loaded
 );
 
 export const selectCountriesError = createSelector(
-  selectCountries,
+  selectCountriesState,
   (state: CountriesState) => state.error
 );

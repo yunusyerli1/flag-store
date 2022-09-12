@@ -37,7 +37,6 @@ export class CountriesEffects {
 
   constructor(
     private actions$: Actions,
-    private store: Store<any>,
     private dataService: DataService,
     private loadingService: LoadingService
   ) {}

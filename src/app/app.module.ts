@@ -20,6 +20,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { countriesReducer } from './store/reducers/countries.reducers';
 import { metaReducers, rootReducers } from './store';
 import { CountriesEffects } from './store/effects/countries.effects';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -39,6 +40,7 @@ import { CountriesEffects } from './store/effects/countries.effects';
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     AppRoutingModule,
     StoreModule.forRoot( rootReducers,{metaReducers}),
     EffectsModule.forRoot([CountriesEffects]),
