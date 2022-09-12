@@ -7,14 +7,11 @@ import { ICountry } from 'src/app/models/country';
    props<{ countries: ICountry[] }>()
  );
 
- export const errorCountry = createAction(
-   '[get countries] error country',
-   props<{ message: string }>()
+ export const loadCountriesSuccess = createAction(
+  '[FlagList Component] error country',
  );
 
-
-
-// export const increment = createAction('[Counter Component] Increment');
-// export const decrement = createAction('[Counter Component] Decrement');
-// export const reset = createAction('[Counter Component] Reset');
-
+ export const loadCountriesFailure = createAction(
+   '[FlagList Component] error country',
+   props<{ message: string }>()
+ );
