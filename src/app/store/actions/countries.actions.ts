@@ -1,17 +1,23 @@
-import { createAction, props } from '@ngrx/store';
-import { ICountry } from 'src/app/models/country';
+import { createAction, props } from "@ngrx/store";
+import { ICountry } from "src/app/models/country";
 
+export enum CountriesActionsNames {
+  Init = '[Flag List] Init',
+  LoadCountries = '[Flag List] Load Countries',
+  LoadCountriesSuccess = '[Flag List] Load Countries Success',
+  LoadCountriesFailure = '[Flag List] Load Countries Failure',
+}
 
- export const loadCountries = createAction(
-   '[FlagList Component] Load Countries',
-   props<{ countries: ICountry[] }>()
- );
+export const Init = createAction(CountriesActionsNames.Init);
 
- export const loadCountriesSuccess = createAction(
-  '[FlagList Component] error country',
- );
+export const LoadCountries = createAction(CountriesActionsNames.LoadCountries);
 
- export const loadCountriesFailure = createAction(
-   '[FlagList Component] error country',
-   props<{ message: string }>()
- );
+export const LoadCountriesSuccess = createAction(
+  CountriesActionsNames.LoadCountriesSuccess,
+  props<{ data: ICountry[] }>()
+);
+
+export const LoadCountriesFailure = createAction(
+  CountriesActionsNames.LoadCountriesFailure,
+  props<{ error: string | null }>()
+);

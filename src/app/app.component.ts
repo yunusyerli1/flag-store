@@ -5,7 +5,7 @@ import { LoadingService } from './services/loading.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  providers:[LoadingService]
+  //providers:[LoadingService]
 })
 export class AppComponent implements OnInit, AfterViewInit {
 

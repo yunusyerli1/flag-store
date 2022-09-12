@@ -18,7 +18,8 @@ import { environment } from '../environments/environment';
 
 import { EffectsModule } from '@ngrx/effects';
 import { countriesReducer } from './store/reducers/countries.reducers';
-import { rootReducers } from './store';
+import { metaReducers, rootReducers } from './store';
+import { CountriesEffects } from './store/effects/countries.effects';
 
 
 
@@ -39,8 +40,8 @@ import { rootReducers } from './store';
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
-    StoreModule.forRoot( rootReducers),
-    EffectsModule.forRoot([]),
+    StoreModule.forRoot( rootReducers,{metaReducers}),
+    EffectsModule.forRoot([CountriesEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
   providers: [],
