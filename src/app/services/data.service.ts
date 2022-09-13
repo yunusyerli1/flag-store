@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { map, tap} from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
 import { ICountry } from '../models/country';
@@ -11,8 +11,21 @@ import { ICountryDetail } from '../models/detail';
 })
 export class DataService {
 
+  public searchSubject = new BehaviorSubject<string>('');
+  searchQuery$: Observable<string>= this.searchSubject.asObservable();
+  searchTerm:string;
 
   constructor(private http: HttpClient) { }
+
+  setSearchTerm(term:string){
+    console.log(term)
+    this.searchSubject.next(term)
+  }
+
+
+  getSearchTerm() {
+    return this.searchSubject.getValue()
+  }
 
   public getCountries(): Observable<ICountry[]> {
     return this.http.get<any[]>(environment.countriesUrl + "/all")

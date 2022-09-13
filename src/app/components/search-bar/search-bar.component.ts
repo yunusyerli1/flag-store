@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { Store, select } from '@ngrx/store';
+import { DataService } from 'src/app/services/data.service';
+import { searchQuery } from 'src/app/store/selectors/countries.selectors';
 
 @Component({
   selector: 'app-search-bar',
@@ -9,13 +12,13 @@ export class SearchBarComponent implements OnInit {
 
   term: string;
 
-  constructor() { }
+  constructor(private store: Store, private dataService: DataService) { }
 
   ngOnInit(): void {
   }
 
   searchTerm() {
-    console.log(this.term)
+    this.dataService.setSearchTerm(this.term)
   }
 
 }

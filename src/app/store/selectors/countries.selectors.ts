@@ -5,7 +5,7 @@ export const selectCountriesState = createFeatureSelector<any>("countries")
 
 export const selectAllCountries = createSelector(
   selectCountriesState,
-  (countries) => countries.countries
+  (state) => state.countries
 );
 
 export const selectCountriesLoaded = createSelector(
@@ -17,3 +17,10 @@ export const selectCountriesError = createSelector(
   selectCountriesState,
   (state: CountriesState) => state.error
 );
+
+// export const searchQuery = (val:"turkey", store) => {
+//   return store.select(selectAllCountries)
+//   .filter(countries => countries.common.name == val)
+// }
+
+export const searchQuery= (term?:string) => createSelector(selectCountriesState, state => state.countries.filter(x => x.name == term));
