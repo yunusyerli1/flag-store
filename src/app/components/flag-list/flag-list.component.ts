@@ -17,7 +17,6 @@ import { selectAllCountries, selectCountriesError, selectCountriesLoaded,searchQ
 export class FlagListComponent implements OnInit {
 
   countryList$: Observable<CountriesState>;
-  countryListTemp$: Observable<CountriesState>;
   countryListLoaded$:Observable<boolean>;
   isCountriesLoaded: boolean = false;
   //errorMessage$:  Observable<string>;
@@ -26,13 +25,12 @@ export class FlagListComponent implements OnInit {
   constructor( private store: Store, public dataService: DataService) { }
 
   ngOnInit(): void {
-    this.countryList$ = this.store.select((selectAllCountries))
-   this.store.select((selectAllCountries)).subscribe(countries => {
-    this.dataService.setCountries(countries);
-    this.dataService.countrySubject.next(countries)
-  })
-    this.countryListTemp$ = this.countryList$;
+    this.countryList$ = this.store.select((selectAllCountries));
 
+   this.store.select((selectAllCountries)).subscribe(countries => {
+      this.dataService.setCountries(countries);
+      this.dataService.countrySubject.next(countries)
+    })
 
     this.countryListLoaded$ = this.store.select((selectCountriesLoaded))
 
