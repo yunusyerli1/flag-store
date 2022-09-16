@@ -26,8 +26,6 @@ export class CountriesEffects {
             this.loadingService.loadingOff();
             return CountriesActions.LoadCountriesSuccess({ data })
           }),
-
-          tap(value => console.log("dfgdsfgadsad")),
           // Or... if it errors return a new failure action containing the error
           catchError((error) => of(CountriesActions.LoadCountriesFailure({ error })))
         )

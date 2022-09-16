@@ -22,11 +22,6 @@ export class DataService {
     this.searchSubject.next(term)
   }
 
-
-  getSearchTerm() {
-    return this.searchSubject.getValue()
-  }
-
   public getCountries(): Observable<ICountry[]> {
     return this.http.get<any[]>(environment.countriesUrl + "/all")
     .pipe(
