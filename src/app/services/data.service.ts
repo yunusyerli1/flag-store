@@ -1,4 +1,5 @@
 import { HttpClient } from '@angular/common/http';
+import { ThisReceiver } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map, tap} from 'rxjs/operators';
@@ -11,15 +12,23 @@ import { ICountryDetail } from '../models/detail';
 })
 export class DataService {
 
-  public searchSubject = new BehaviorSubject<string>('');
-  searchQuery$: Observable<string>= this.searchSubject.asObservable();
-  searchTerm:string;
+  public countrySubject = new BehaviorSubject<ICountry[]>([]);
+  countries$: Observable<ICountry[]>= this.countrySubject.asObservable();
+
+  COUNTRIES:ICountry[]= [];
 
   constructor(private http: HttpClient) { }
 
   setSearchTerm(term:string){
-    console.log(term)
-    this.searchSubject.next(term)
+    let tempArray = [];
+    this.COUNTRIES.forEach( country => {
+      if(country.name.includes(term)) tempArray.push(country);
+      this.countrySubject.next(tempArray)
+  })
+  }
+
+  setCountries(countries:ICountry[]) {
+    this.COUNTRIES = countries;
   }
 
   public getCountries(): Observable<ICountry[]> {

@@ -21,35 +21,20 @@ export class FlagListComponent implements OnInit {
   countryListLoaded$:Observable<boolean>;
   isCountriesLoaded: boolean = false;
   //errorMessage$:  Observable<string>;
-  term:string;
-  term2: any
-  searchTerm$:any;
 
-  normalData
 
-  constructor( private store: Store, private dataService: DataService) { }
+  constructor( private store: Store, public dataService: DataService) { }
 
   ngOnInit(): void {
     this.countryList$ = this.store.select((selectAllCountries))
    this.store.select((selectAllCountries)).subscribe(countries => {
-    this.normalData = countries
-    console.log(this.normalData)
-})
-console.log(this.normalData)
+    this.dataService.setCountries(countries);
+    this.dataService.countrySubject.next(countries)
+  })
     this.countryListTemp$ = this.countryList$;
 
-    // .pipe(
-    //   filter(val=> val),
-    //   tap(val => {
-    //     this.dataService.searchQuery$.subscribe(
-    //       val=> this.searchTerm$ ==val
-    //     );
-    //   }),
-    //   tap(val=>console.log(val)),
-    // )
 
     this.countryListLoaded$ = this.store.select((selectCountriesLoaded))
-    console.log(this.term)
 
     this.countryListLoaded$.pipe(
       map(val => this.isCountriesLoaded = val)
@@ -57,15 +42,6 @@ console.log(this.normalData)
 
     if(!this.isCountriesLoaded) this.store.dispatch(LoadCountries())
    // this.errorMessage$ = this.store.select((selectCountriesError));
-   //this.getSearchItem()
-
-   this.searchTerm$ = this.dataService.searchQuery$;
-   this.dataService.searchQuery$.pipe(
-    tap(val => console.log(val))
-  )
-
-
   }
-
 
 }
