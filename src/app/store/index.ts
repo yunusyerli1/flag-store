@@ -1,9 +1,10 @@
 import { ActionReducerMap, MetaReducer } from '@ngrx/store';
 import { environment } from 'src/environments/environment';
+import { ICountriesState, ICountry } from '../models/country';
 import { countriesReducer, logger } from './reducers/countries.reducers';
 
 export interface IAppState {
-  //countries: any;
+  countries: ICountriesState;
   //countryList:ICountriesState
 }
 
