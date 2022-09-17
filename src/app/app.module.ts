@@ -20,6 +20,7 @@ import { metaReducers, rootReducers } from './store';
 import { CountriesEffects } from './store/effects/countries.effects';
 import { FormsModule } from '@angular/forms';
 import { DropdownMenuComponent } from './components/dropdown-menu/dropdown-menu.component';
+import { LoadingService } from './services/loading.service';
 
 
 
@@ -46,7 +47,7 @@ import { DropdownMenuComponent } from './components/dropdown-menu/dropdown-menu.
     EffectsModule.forRoot([CountriesEffects]),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
   ],
-  providers: [],
+  providers: [LoadingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

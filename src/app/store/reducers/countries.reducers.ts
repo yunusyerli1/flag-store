@@ -1,6 +1,6 @@
 /* eslint-disable @ngrx/on-function-explicit-return-type */
 import { ActionReducer, createReducer, on } from '@ngrx/store';
-import { ICountriesState, ICountry } from 'src/app/models/country';
+import { ICountriesState } from 'src/app/models/country';
 import { IAppState } from '../index';
 import { CountriesActions } from '../actions/action-types';
 
