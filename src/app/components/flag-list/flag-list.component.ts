@@ -6,8 +6,7 @@ import { filter, map,tap, take, combineLatest, count } from 'rxjs/operators';
 import { ICountry } from 'src/app/models/country';
 import { DataService } from 'src/app/services/data.service';
 import { LoadCountries } from 'src/app/store/actions/countries.actions';
-import { CountriesState } from 'src/app/store/reducers/countries.reducers';
-import { selectAllCountries, selectCountriesError, selectCountriesLoaded,searchQuery } from 'src/app/store/selectors/countries.selectors';
+import { selectAllCountries, selectCountriesError, selectCountriesLoaded } from 'src/app/store/selectors/countries.selectors';
 
 @Component({
   selector: 'app-flag-list',

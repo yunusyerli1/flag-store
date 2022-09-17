@@ -6,3 +6,9 @@ export interface ICountry {
   flag?:string;
   code?:string;
 }
+
+export interface ICountriesState {
+  countries: ICountry[];
+  error?:string;
+  loaded: boolean;
+}
