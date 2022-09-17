@@ -15,9 +15,7 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
-
 import { EffectsModule } from '@ngrx/effects';
-import { countriesReducer } from './store/reducers/countries.reducers';
 import { metaReducers, rootReducers } from './store';
 import { CountriesEffects } from './store/effects/countries.effects';
 import { FormsModule } from '@angular/forms';

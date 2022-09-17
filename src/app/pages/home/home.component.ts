@@ -7,6 +7,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  menuItems:Array<string>= ["Africa", "Americas", "Asia", "Europe", "Oceania"];
+
   constructor() { }
 
   ngOnInit(): void {

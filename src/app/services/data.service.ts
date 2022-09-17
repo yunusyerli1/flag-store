@@ -15,10 +15,17 @@ export class DataService {
   public searchSubject = new BehaviorSubject<string>('');
   searchTerm$: Observable<string>= this.searchSubject.asObservable();
 
+  public regionSubject = new BehaviorSubject<string>('');
+  regionTerm$: Observable<string>= this.regionSubject.asObservable();
+
   constructor(private http: HttpClient) { }
 
   setSearchTerm(term:string){
     this.searchSubject.next(term)
+  }
+
+  filterRegion(region) {
+    this.regionSubject.next(region)
   }
 
   public getCountries(): Observable<ICountry[]> {
@@ -36,8 +43,7 @@ export class DataService {
         })
         )
       }
-      ),
-      tap(res => console.log(res))
+      )
     )
   }
 

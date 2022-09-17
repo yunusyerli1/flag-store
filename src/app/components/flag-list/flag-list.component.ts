@@ -23,10 +23,12 @@ export class FlagListComponent implements OnInit, OnDestroy {
   //errorMessage$:  Observable<string>;
 
   searchItem:string;
+  regionItem:string;
 
   subscription1$:Subscription;
   subscription2$:Subscription;
   subscription3$:Subscription;
+  subscription4$:Subscription;
 
   countriesTemp:ICountry[];
 
@@ -59,6 +61,13 @@ export class FlagListComponent implements OnInit, OnDestroy {
         this.searcForCountries(this.searchItem)
       }
      );
+
+     this.subscription4$ = this.dataService.regionTerm$.subscribe(
+      term => {
+        this.regionItem = term;
+        this.searcForRegions(this.regionItem)
+      }
+     );
   }
 
   searcForCountries(word:string) {
@@ -69,11 +78,19 @@ export class FlagListComponent implements OnInit, OnDestroy {
     })
   }
 
+  searcForRegions(word:string) {
+    let tempArray = [];
+    this.countriesTemp.forEach(country => {
+      if(country.region.includes(word)) tempArray.push(country);
+      this.countryListSubject.next(tempArray)
+    })
+  }
+
   ngOnDestroy(): void {
       this.subscription1$.unsubscribe();
       this.subscription2$.unsubscribe();
       this.subscription3$.unsubscribe();
-
+      this.subscription4$.unsubscribe();
   }
 
 }

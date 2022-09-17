@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-dropdown-menu',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DropdownMenuComponent implements OnInit {
 
-  constructor() { }
+  isVisible:boolean = false;
+  @Input() regions: string[] = [];
 
-  ngOnInit(): void {
+  constructor(private dataService: DataService) { }
+
+  ngOnInit(): void {}
+
+  toggleMenu(){
+    this.isVisible = !this.isVisible;
+  }
+
+  selectMenuItem(region) {
+    this.dataService.filterRegion(region);
   }
 
 }
