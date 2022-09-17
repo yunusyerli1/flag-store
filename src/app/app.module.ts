@@ -21,6 +21,7 @@ import { countriesReducer } from './store/reducers/countries.reducers';
 import { metaReducers, rootReducers } from './store';
 import { CountriesEffects } from './store/effects/countries.effects';
 import { FormsModule } from '@angular/forms';
+import { DropdownMenuComponent } from './components/dropdown-menu/dropdown-menu.component';
 
 
 
@@ -36,6 +37,7 @@ import { FormsModule } from '@angular/forms';
     FlagCardComponent,
     PageNotFoundComponent,
     LoadingComponent,
+    DropdownMenuComponent,
   ],
   imports: [
     BrowserModule,
