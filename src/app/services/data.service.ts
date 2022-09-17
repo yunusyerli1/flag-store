@@ -12,23 +12,13 @@ import { ICountryDetail } from '../models/detail';
 })
 export class DataService {
 
-  public countrySubject = new BehaviorSubject<ICountry[]>([]);
-  countries$: Observable<ICountry[]>= this.countrySubject.asObservable();
-
-  COUNTRIES:ICountry[]= [];
+  public searchSubject = new BehaviorSubject<string>('');
+  searchTerm$: Observable<string>= this.searchSubject.asObservable();
 
   constructor(private http: HttpClient) { }
 
   setSearchTerm(term:string){
-    let tempArray = [];
-    this.COUNTRIES.forEach( country => {
-      if(country.name.includes(term)) tempArray.push(country);
-      this.countrySubject.next(tempArray)
-  })
-  }
-
-  setCountries(countries:ICountry[]) {
-    this.COUNTRIES = countries;
+    this.searchSubject.next(term)
   }
 
   public getCountries(): Observable<ICountry[]> {

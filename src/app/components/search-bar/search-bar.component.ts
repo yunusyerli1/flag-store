@@ -12,7 +12,7 @@ export class SearchBarComponent implements OnInit {
 
   term: string;
 
-  constructor(private store: Store, private dataService: DataService) { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
   }

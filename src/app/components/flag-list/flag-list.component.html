@@ -1,5 +1,6 @@
+<p>{{this.searchItem}}</p>
 <div class="grid grid-cols-12 gap-4">
-  <div class="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 2xl:col-span-2" *ngFor="let country of (dataService.countries$ | async)">
+  <div class="col-span-12 sm:col-span-6 md:col-span-4 lg:col-span-3 2xl:col-span-2" *ngFor="let country of (countryList$ | async)">
     <app-flag-card [countryInfo]="country"></app-flag-card>
   </div>
 </div>
