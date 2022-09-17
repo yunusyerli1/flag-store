@@ -10,7 +10,6 @@ export class LoadingComponent implements OnInit {
 
   constructor(public loadingService: LoadingService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }

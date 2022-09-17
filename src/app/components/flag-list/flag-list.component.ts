@@ -31,8 +31,6 @@ export class FlagListComponent implements OnInit, OnDestroy {
 
   countriesTemp:ICountry[];
 
-  data$= interval(1000);
-
   constructor( private store: Store, private dataService: DataService) { }
 
   ngOnInit(): void {

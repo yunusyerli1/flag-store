@@ -29,10 +29,7 @@ export class DetailComponent implements OnInit {
     this.dataService.getDetail(code)
     .subscribe({
       next: (response) => {
-        console.log(response)
         this.countryDetail$ = of(response);
-        console.log( this.countryDetail$ )
-        console.log(typeof this.countryDetail$ )
       },
       error: (error) => {
         console.error('Request failed with error')

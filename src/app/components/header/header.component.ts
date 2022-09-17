@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, Renderer2 } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 
 @Component({
@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit, AfterViewInit {
   isDarkMode:boolean = false;
   localDarkMode!:boolean;
 
-  constructor(private renderer: Renderer2) { }
+  constructor() { }
 
   ngOnInit(): void {
     this.localDarkMode = localStorage.getItem('isDarkMode') == 'false' ? false : true;
