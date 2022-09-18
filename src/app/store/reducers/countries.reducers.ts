@@ -4,14 +4,11 @@ import { ICountriesState } from 'src/app/models/country';
 import { IAppState } from '../index';
 import { CountriesActions } from '../actions/action-types';
 
-
-
 export const initialCountriesState: ICountriesState = {
   countries: [],
   error:null,
   loaded:false,
 }
-
 
 export const countriesReducer = createReducer(
   initialCountriesState,

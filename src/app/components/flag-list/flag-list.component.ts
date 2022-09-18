@@ -43,7 +43,6 @@ export class FlagListComponent implements OnInit, OnDestroy {
       map(countries => {
         this.countryListSubject.next(countries)
         this.countriesTemp = countries;
-
       })
     ).subscribe();
 
@@ -51,14 +50,12 @@ export class FlagListComponent implements OnInit, OnDestroy {
       map(val => this.isCountriesLoaded = val)
     ).subscribe()
 
-
      if(!this.isCountriesLoaded) this.store.dispatch(LoadCountries())
-     // this.errorMessage$ = this.store.select((selectCountriesError));
 
      this.subscription3$ = this.dataService.searchTerm$.subscribe(
       term => {
         this.searchItem = term;
-        this.searcForCountries(this.searchItem)
+        this.searchForCountries(this.searchItem)
       }
      );
 
@@ -70,7 +67,7 @@ export class FlagListComponent implements OnInit, OnDestroy {
      );
   }
 
-  searcForCountries(word:string) {
+  searchForCountries(word:string) {
     let tempArray = [];
     this.countriesTemp.forEach(country => {
       if(country.name.includes(word)) tempArray.push(country);

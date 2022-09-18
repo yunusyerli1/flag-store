@@ -1,5 +1,4 @@
 import { Component, ElementRef, OnInit, AfterViewInit, Renderer2, ViewChild } from '@angular/core';
-import { LoadingService } from './services/loading.service';
 
 @Component({
   selector: 'app-root',
